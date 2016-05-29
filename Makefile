@@ -1,5 +1,4 @@
-LOCALE_KF5 = $(DESTDIR)/usr/share/locale
-LOCALE_KDE4 = $(DESTDIR)/usr/share/locale/kde4
+LOCALE_KF5_DIR = $(DESTDIR)/usr/share/locale
 INSTALL = install -d
 CP = cp -rf
 RM = -rm -rf
@@ -9,15 +8,10 @@ all:
 install: local
 
 clear:
-	$(RM) $(LOCALE_KF5)/*/LC_MESSAGES/krusader.mo
-	$(RM) $(LOCALE_KDE4)/*/LC_MESSAGES/krusader.mo
+	$(RM) $(LOCALE_KF5_DIR)/*/LC_MESSAGES/krusader.mo
 
-	
 local:
-	$(INSTALL) $(LOCALE_KF5)
-	$(INSTALL) $(LOCALE_KDE4)
-	
-	$(CP) l10n/* $(LOCALE_KF5)
-	$(CP) l10n/* $(LOCALE_KDE4)
+	$(INSTALL) $(LOCALE_KF5_DIR)
+	$(CP) l10n/* $(LOCALE_KF5_DIR)
 
 uninstall: clear
